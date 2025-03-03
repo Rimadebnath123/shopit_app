@@ -3,10 +3,10 @@ import NavBar from '../components/ui/NavBar'
 import Footer from '../components/ui/Footer'
 import { Outlet } from 'react-router-dom'
 
-const MainLayout = () => {
+const MainLayout = ({numCartItems}) => {
     return (
         <div>
-            <NavBar></NavBar>
+            <NavBar numCartItems={ numCartItems} />
             <Outlet/>
             <Footer></Footer>
         </div>
