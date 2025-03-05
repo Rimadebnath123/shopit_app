@@ -4,6 +4,7 @@ import RelatedProducts from './RelatedProducts';
 import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../../api';
 import api from '../../api'
+import { toast } from 'react-toastify';
 
 const ProductPage = ({ setNumberCartItems }) => {
 
@@ -33,6 +34,7 @@ const ProductPage = ({ setNumberCartItems }) => {
         api.post("add_item", newItem).then(res => {
             console.log(res.data)
             setInCart(true)
+            toast.success("Product added to cart")
             setNumberCartItems(curr=>curr +1)
         })
             .catch(err => {

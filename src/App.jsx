@@ -35,7 +35,7 @@ const App = () => {
           <Route path="/" element={<MainLayout numCartItems={numCartItems} />}>
             <Route index element={<HomePage />} />
             <Route path="products/:slug" element={<ProductPage setNumberCartItems={setNumberCartItems} />} />
-            <Route path="cart" element={<CartPage />} />
+            <Route path="cart" element={<CartPage setNumberCartItems={setNumberCartItems} />} />
 
             <Route path="*" element={<NotFoundPage />} />
 
