@@ -9,6 +9,7 @@ import CartPage from './components/cart/CartPage';
 import CheckoutPage from './components/checkout/CheckoutPage';
 import LoginPage from './components/user/LoginPage';
 import ProtectedRoute from './components/ui/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
 
 
 
@@ -33,6 +34,7 @@ const App = () => {
 
   return (
     <div>
+    <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout numCartItems={numCartItems} />}>
@@ -40,12 +42,13 @@ const App = () => {
             <Route path="products/:slug" element={<ProductPage setNumberCartItems={setNumberCartItems} />} />
             <Route path="cart" element={<CartPage setNumberCartItems={setNumberCartItems} />} />
             <Route path="checkout" element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
-            <Route path="login" element={<LoginPage/>}/>
+            <Route path="login" element={<LoginPage />} />
             <Route path="*" element={<NotFoundPage />} />
 
           </Route>
         </Routes>
-      </BrowserRouter>
+        </BrowserRouter>
+    </AuthProvider>
     </div>
 
   )

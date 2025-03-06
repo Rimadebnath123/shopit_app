@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./LoginPage.css"
 import api from '../../api';
 import Error from '../ui/Error';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 
 const LoginPage = () => {
+    const { setIsAuthenticated, get_username } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -27,9 +29,11 @@ const LoginPage = () => {
             setUsername("")
             setPassword("")
             setLoading(false)
+            setIsAuthenticated(true)
+            get_username()
             setError("")
 
-            const form = location.state.from.pathname || "/";
+            const from = location?.state?.from.pathname || "/";
             navigate(from, { replace: true });
 
         })
