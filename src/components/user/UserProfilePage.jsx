@@ -7,12 +7,15 @@ import Spinner from "../ui/Spinner"
 const UserProfilePage = () => {
 
     const [userInfo, setUserInfo] = useState({})
+    const [orderitems,setOrderitems]=useState([])
     const [loading, setLoading] = useState(false)
 
     useEffect(function () {
+        setLoading(true);
         api.get("user_info").then(res => {
             console.log(res.data)
             setUserInfo(res.data)
+            setOrderitems(res.data.items)
             setLoading(false)
         })
             .catch(err => {
@@ -21,7 +24,7 @@ const UserProfilePage = () => {
             })
     }, [])
 
-    if(loading) {
+    if (loading) {
         return <Spinner loading={loading} />
     }
 
@@ -31,7 +34,7 @@ const UserProfilePage = () => {
             <UserInfo userInfo={userInfo} />
 
             {/* Order History */}
-            <OrderHistoryItemContainer />
+            <OrderHistoryItemContainer orderitems={orderitems} />
         </div>
     );
 };

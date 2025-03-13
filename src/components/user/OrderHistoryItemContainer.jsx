@@ -1,7 +1,7 @@
 import React from 'react';
 import OrderHistoryItem from './OrderHistoryitem';
 
-const OrderHistoryItemContainer = () => {
+const OrderHistoryItemContainer = ({orderitems}) => {
     return (
         <div className="row" style={{ height: '300px', overflow: 'auto' }}>
             <div className="col-md-12">
@@ -9,7 +9,8 @@ const OrderHistoryItemContainer = () => {
                     <div className="card-header" style={{ backgroundColor: '#8650DC', color: 'white' }}>
                         <h5>Order History</h5>
                     </div>
-                    <OrderHistoryItem />
+                    {orderitems.map(item => <OrderHistoryItem key={item.id} item={item} />)}
+                    
                     
                 </div>
             </div>
