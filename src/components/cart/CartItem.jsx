@@ -4,7 +4,7 @@ import api from '../../api'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const CartItem = ({ item, setCartTotal, setCartItems,cartitems, setNumberCartItems }) => {
+const CartItem = ({ item, setCartTotal, setCartItems, cartitems, setNumberCartItems }) => {
 
     const [quantity, setQuantity] = useState(item.quantity)
     const [loading, setLoading] = useState(false)
@@ -55,7 +55,7 @@ const CartItem = ({ item, setCartTotal, setCartItems,cartitems, setNumberCartIte
     return (
         <div className="col-md-12">
             {/* Cart Items */}
-            <div className="cart-item d-flex align-items-center mb-3 p-3"
+            <div className="cart-item d-flex align-items-center mb-3 p-2"
                 style={{ backgroundColor: "#f8f9fa", borderRadius: "8px" }}>
 
                 <img
@@ -67,21 +67,32 @@ const CartItem = ({ item, setCartTotal, setCartItems,cartitems, setNumberCartIte
 
                 <div className="ms-3 flex-grow-1">
                     <h5 className="mb-1">{item.product.name}</h5>
-                    <p className="mb-0 text-muted">{`₹${item.product.price}`}</p>
+                    <p className="mb-0 text-muted">{`$${item.product.price}`}</p>
                 </div>
 
-                <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center flex-column flex-md-row">
                     <input
                         type="number"
                         min="1"
-                        className="form-control me-3"
+                        className="form-control me-3 mb-2 mb-md-0"
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                         style={{ width: "70px" }}
                     />
-                    <button className="btn btn-sm mx-2" onClick={updateCartitem} style={{ backgroundColor: "#4b3bcb", color: "white" }} disabled={loading}>
-                        {loading ? "Updating" : "update"}</button>
-                    <button className="btn btn-danger btn-sm" onClick={deleteCartitem}>Remove</button>
+                    <button
+                        className="btn btn-sm mx-2"
+                        onClick={updateCartitem}
+                        style={{ backgroundColor: "#4b3bcb", color: "white" }}
+                        disabled={loading}
+                    >
+                        {loading ? "Updating" : "Update"}
+                    </button>
+                    <button
+                        className="btn btn-danger btn-sm mt-2 mt-md-0"
+                        onClick={deleteCartitem}
+                    >
+                        Remove
+                    </button>
                 </div>
 
             </div>
