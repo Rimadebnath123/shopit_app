@@ -8,6 +8,7 @@ import api from './api'
 import CartPage from './components/cart/CartPage';
 import CheckoutPage from './components/checkout/CheckoutPage';
 import LoginPage from './components/user/LoginPage';
+import Register from './components/user/RegisterPage';
 import ProtectedRoute from './components/ui/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 import UserProfilePage from './components/user/UserProfilePage';
@@ -45,6 +46,7 @@ const App = () => {
               <Route path="cart" element={<CartPage setNumberCartItems={setNumberCartItems} />} />
               <Route path="checkout" element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
               <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<Register />} />
               <Route path="profile" element={<UserProfilePage />} />
               <Route path="*" element={<NotFoundPage />} />
               <Route path="payment-status" element={<PaymentStatusPage setNumberCartItems={setNumberCartItems} />} />

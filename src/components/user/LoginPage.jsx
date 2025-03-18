@@ -67,7 +67,7 @@ const LoginPage = () => {
                 </form>
                 <div className="login-footer">
                     <p><a href="#">Forgot Password?</a></p>
-                    <p>Don't have an account? <a href="#">Sign up</a></p>
+                    <p>Don't have an account? <a href="/register">Sign up</a></p>
                 </div>
             </div>
         </div>
