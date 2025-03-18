@@ -10,6 +10,26 @@ const PaymentStatusPage = ({setNumberCartItems}) => {
 
     useEffect(function () {
         const queryParams = new URLSearchParams(location.search);
+        const paymentId = queryParams.get("paymentId");
+        const payId = queryParams.get("PayerID");
+        const ref = queryParams.get("ref");
+
+        if (paymentId && payId && ref) {
+            api.post(`paypal_payment_callback/?paymentId=${paymentId}&PayerID=${payId}&ref=${ref}`)
+                .then(res => {
+                    setStatusMessage(res.data.message);
+                    setStatusSubMessage(res.data.subMessage);
+                    localStorage.removeItem("cart_code");
+                    setNumberCartItems(0);
+                })
+                .catch(err => {
+                    console.log("Payment verification error:", err.message);
+                });
+        }
+    },[])
+
+    useEffect(function () {
+        const queryParams = new URLSearchParams(location.search);
         const status = queryParams.get('status');
         const txRef = queryParams.get('tx_ref');
         const transactionId = queryParams.get('transaction_id');

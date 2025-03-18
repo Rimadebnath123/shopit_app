@@ -21,7 +21,7 @@ const PaymentSection = () => {
 
     function paypalPayment() {
         setLoading(true);
-        api.post("paypal_payment/", {cart_code}) // Ensure cart_code is correctly sent
+        api.post("initiate_paypal_payment/", {cart_code}) // Ensure cart_code is correctly sent
             .then(res => {
                 console.log("Payment Response:", res.data);
                 setLoading(false);
