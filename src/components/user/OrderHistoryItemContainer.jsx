@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderHistoryItem from './OrderHistoryitem';
+import OrderHistoryItem from './OrderHistoryItem';
 
 const OrderHistoryItemContainer = ({orderitems}) => {
     return (
