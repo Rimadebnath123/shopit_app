@@ -1,5 +1,5 @@
 import UserInfo from "./Userinfo";
-import OrderHistoryItemContainer from "./OrderHistoryitemContainer";
+import OrderHistoryItemContainer from "./OrderHistoryItemContainer";
 import { useEffect, useState } from "react";
 import api from "../../api";
 import Spinner from "../ui/Spinner"
