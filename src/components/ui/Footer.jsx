@@ -23,7 +23,7 @@ const Footer = () => {
 
                 {/* Copyright Section */}
                 <div>
-                    <p className="small mb-0">&copy; 2024 Shoppit</p>
+                    <p className="small mb-0">&copy; 2025 Shoppit</p>
                 </div>
 
             </div>
